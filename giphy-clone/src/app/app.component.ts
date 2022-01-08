@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyserviceService } from './myservice.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'giphy-clone';
+ public id = ''
+  constructor(public myserviceService:MyserviceService){
+    this.showData();
+  }
+
+  showData(){
+    this.myserviceService.getData().subscribe((res)=>{
+    
+      console.log(res)
+    
+    })
+  }
 }
